@@ -83,6 +83,25 @@ export default {
       return `<div class="msg-left">${msg}</div>`;
     };
 
+
+    const notifyMe = (msg) => {
+      if (!("Notification" in window)) {
+        alert("此瀏覽器不支援通知功能");
+      }
+
+      else if (Notification.permission === "granted") {
+        var notification = new Notification(msg);
+      }
+
+      else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(function (permission) {
+          if (permission === "granted") {
+            var notification = new Notification(msg);
+          }
+        });
+      }
+    };
+
     // 透過 onmessage 接收 server 傳送的訊息
     onMounted(() => {
       ws.onmessage = function (e) {
@@ -100,6 +119,7 @@ export default {
             } else {
               msg = getMessage(m.name, m.photo, "left", m.content);
             }
+            notifyMe(m.name + "說："+m.content);
             break;
           case "other":
             if (m.name != PERSON_NAME) {
@@ -107,13 +127,20 @@ export default {
             } else {
               msg = getEventMessage("您已" + m.content);
             }
+            notifyMe(m.name + "已登入");
             break;
         }
         insertMsg(msg, chatroom[0]);
       };
     });
 
-    return { goBack, handleMessageEvent, handleSyncMessageEvent, text };
+    return {
+      goBack,
+      handleMessageEvent,
+      handleSyncMessageEvent,
+      text,
+      notifyMe,
+    };
   },
 };
 </script>
@@ -129,6 +156,13 @@ export default {
     <header class="msger-header">
       <div class="msger-header-title">
         <i class="fas fa-comment-alt"></i> 公開匿名聊天室
+        <el-button
+          style="line-height: 1rem;"
+          type="success"
+          icon="el-icon-s-comment"
+          size="mini"
+          @click="notifyMe"
+        >有訊息通知我</el-button>
       </div>
       <div class="msger-header-options">
         <span><i class="fas fa-cog"></i></span>
