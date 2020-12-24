@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:export-ydpi="28.350002"
+   inkscape:export-xdpi="28.350002"
+   inkscape:export-filename="C:\Users\tad\tn\vue3\chat\src\assets\images\road-line2.png"
+   sodipodi:docname="road-line.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 210 297"
+   height="297mm"
+   width="210mm">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     inkscape:window-maximized="1"
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:window-height="1017"
+     inkscape:window-width="1920"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="501.72602"
+     inkscape:cx="806.7009"
+     inkscape:zoom="0.7"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <path
+       inkscape:export-ydpi="35.490002"
+       inkscape:export-xdpi="35.490002"
+       transform="scale(0.26458333)"
+       d="M 230 55.714844 L 230 284.28516 L 230 512.85742 L 230 741.42773 L 230 970 L 635.71484 970 L 635.71484 741.42773 L 635.71484 512.85742 L 635.71484 284.28516 L 635.71484 55.714844 L 230 55.714844 z "
+       style="fill:#808080;fill-rule:evenodd;stroke:none;stroke-width:2.30547;paint-order:stroke fill markers"
+       id="rect833" />
+    <rect
+       inkscape:export-ydpi="35.490002"
+       inkscape:export-xdpi="35.490002"
+       y="14.741071"
+       x="164.43826"
+       height="33.261906"
+       width="3.7611277"
+       id="rect835"
+       style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.324292;paint-order:stroke fill markers" />
+    <rect
+       style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.324291;paint-order:stroke fill markers"
+       id="rect835-0"
+       width="3.7611277"
+       height="33.261906"
+       x="164.43826"
+       y="75.217262"
+       inkscape:export-xdpi="35.490002"
+       inkscape:export-ydpi="35.490002" />
+    <rect
+       style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.324292;paint-order:stroke fill markers"
+       id="rect888"
+       width="3.7611277"
+       height="33.261906"
+       x="164.43828"
+       y="135.69345"
+       inkscape:export-xdpi="35.490002"
+       inkscape:export-ydpi="35.490002" />
+    <rect
+       inkscape:export-ydpi="35.490002"
+       inkscape:export-xdpi="35.490002"
+       y="196.16963"
+       x="164.43828"
+       height="33.261906"
+       width="3.7611277"
+       id="rect894"
+       style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.324291;paint-order:stroke fill markers" />
+    <text
+       inkscape:export-ydpi="35.490002"
+       inkscape:export-xdpi="35.490002"
+       transform="scale(1.03179,0.96918946)"
+       id="text918"
+       y="16.698536"
+       x="108.85843"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.8051px;line-height:1.25;font-family:HanWangHeiHeavy;-inkscape-font-specification:HanWangHeiHeavy;letter-spacing:0px;word-spacing:0px;writing-mode:tb-rl;opacity:0.6;fill:#ffd42a;stroke-width:0.206302"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.8051px;font-family:HanWangHeiHeavy;-inkscape-font-specification:HanWangHeiHeavy;writing-mode:tb-rl;fill:#ffd42a;stroke-width:0.206302"
+         y="108.85843"
+         x="16.698536"
+         id="tspan916"
+         sodipodi:role="line">禁行機車</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.324292;paint-order:stroke fill markers"
+       id="rect835-00"
+       width="3.7611277"
+       height="33.261906"
+       x="60.854156"
+       y="14.741072"
+       inkscape:export-xdpi="35.490002"
+       inkscape:export-ydpi="35.490002" />
+    <rect
+       inkscape:export-ydpi="35.490002"
+       inkscape:export-xdpi="35.490002"
+       y="75.217262"
+       x="60.854156"
+       height="33.261906"
+       width="3.7611277"
+       id="rect835-0-8"
+       style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.324292;paint-order:stroke fill markers" />
+    <rect
+       inkscape:export-ydpi="35.490002"
+       inkscape:export-xdpi="35.490002"
+       y="135.69345"
+       x="60.854172"
+       height="33.261906"
+       width="3.7611277"
+       id="rect888-1"
+       style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.324292;paint-order:stroke fill markers" />
+    <rect
+       style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.324292;paint-order:stroke fill markers"
+       id="rect894-9"
+       width="3.7611277"
+       height="33.261906"
+       x="60.854172"
+       y="196.16963"
+       inkscape:export-xdpi="35.490002"
+       inkscape:export-ydpi="35.490002" />
+  </g>
+</svg>
