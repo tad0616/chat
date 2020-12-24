@@ -31,20 +31,19 @@ export default {
     const ws = new WebSocket("ws://120.115.2.76:8443/?id=car");
 
     // 群發
-    const wsSend = () => {
-      console.log("送出：開始比賽？", startRace.value);
-      console.log("送出：重來一次？", reset.value);
-      console.log("送出：領先者為？", winner.value);
+    const wsSend = (startRaceV = false, resetV = true, winnerV = 1) => {
+      console.log("送出：開始比賽？", startRaceV);
+      console.log("送出：重來一次？", resetV);
+      console.log("送出：領先者為？", winnerV);
       ws.send(
         JSON.stringify({
           event: "race",
-          wsWinner: winner.value,
-          startRaceWs: startRace.value,
-          resetWs: reset.value,
+          startRaceWs: startRaceV,
+          resetWs: resetV,
+          wsWinner: winnerV,
         })
       );
     };
-
 
     let raceTimer = null;
     let countDownTimer = null;
@@ -77,8 +76,10 @@ export default {
 
     // 開始比賽
     const start = () => {
-      startRace.value = !startRace.value;
-      wsSend();
+      roadPosition.value = 0;
+      winner.value = 1;
+      console.log("=== 發出開始 ===");
+      wsSend(true, false, 1);
     };
 
     // 監控開始比賽
@@ -86,7 +87,7 @@ export default {
       // console.log("carsWs", carsWs.value[1].bottom[1]);
 
       if (newState) {
-        console.log("=== 比賽開始 ===");
+        console.log("=== 大家開始 ===");
         let i = 0;
         const bottomArr = Object.values(carsWs.value).map(
           (item) => item.bottom
@@ -116,25 +117,21 @@ export default {
 
     // 重來一次
     const reStart = () => {
-      reset.value = true;
-      wsSend();
+      console.log("=== 發出重設 ===");
+      roadPosition.value = 0;
+      winner.value = 1;
+      wsSend(false, true, 1);
     };
 
     // 監控重來一次一次
     watch(resetWs, (newRestart, oldRestart) => {
-      console.log("=== 重來一次 ===");
+      console.log("=== 大家重來 ===");
       stopAll();
-      // icon.value = "el-icon-video-play";
-      // type.value = "primary";
-      startRace.value = false;
-      roadPosition.value = 0;
       outTime.value = 20;
       showWinner.value = false;
-      winner.value = 1;
       cars.forEach((car, index) => {
         car.bottom = 160;
       });
-      wsSend();
     });
 
     // 透過 onmessage 接收 server 傳送的訊息
@@ -143,7 +140,6 @@ export default {
         let m = JSON.parse(e.data);
         switch (m.event) {
           case "race":
-
             resetWs.value = m.resetWs;
             startRaceWs.value = m.startRaceWs;
             winner.value = m.wsWinner;
