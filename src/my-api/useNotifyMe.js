@@ -1,5 +1,5 @@
 // 通知功能
-export function notifyMe(title, msg) {
+export function notifyMe(title, msg, link = "") {
   let notifyConfig = {
     body: msg, // 設定內容
     icon: require("@/assets/images/chat.png"), // 設定 icon
@@ -10,13 +10,25 @@ export function notifyMe(title, msg) {
 
   // 用戶已授權
   else if (Notification.permission === "granted") {
-    var notification = new Notification(title, notifyConfig);
+    const notify = new Notification(title, notifyConfig);
+    if (link) {
+      notify.onclick = function(e) {
+        e.preventDefault();
+        window.open(link);
+      };
+    }
   }
   // 用戶未拒絕者
   else if (Notification.permission !== "denied") {
     Notification.requestPermission().then((permission) => {
       if (permission === "granted") {
-        var notification = new Notification(title, notifyConfig);
+        const notify = new Notification(title, notifyConfig);
+        if (link) {
+          notify.onclick = function(e) {
+            e.preventDefault();
+            window.open(link);
+          };
+        }
       }
     });
   }
