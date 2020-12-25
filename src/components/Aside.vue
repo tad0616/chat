@@ -33,7 +33,11 @@ export default {
         </el-menu-item>
         <el-menu-item index="/Chat">
           <i class="el-icon-chat-line-round"></i>
-          <template #title>聊天室</template>
+          <template #title>公開聊天室</template>
+        </el-menu-item>
+        <el-menu-item index="/MyChat">
+          <i class="el-icon-s-comment"></i>
+          <template #title>我的聊天室</template>
         </el-menu-item>
         <el-menu-item index="/Car">
           <i class="el-icon-trophy"></i>
@@ -59,7 +63,10 @@ export default {
           </el-submenu>
         </el-submenu>
 
-        <el-menu-item index="3" disabled>
+        <el-menu-item
+          index="3"
+          disabled
+        >
           <i class="el-icon-document"></i>
           <template #title>導航三</template>
         </el-menu-item>

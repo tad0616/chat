@@ -69,23 +69,9 @@ export default createStore({
   },
   getters: {
     getPersonImg() {
-      // 使用者的大頭貼，預設有 10 張
-      const userPhotos = [
-        "https://www.flaticon.com/svg/static/icons/svg/3408/3408584.svg",
-        "https://www.flaticon.com/svg/static/icons/svg/3408/3408537.svg",
-        "https://www.flaticon.com/svg/static/icons/svg/3408/3408540.svg",
-        "https://www.flaticon.com/svg/static/icons/svg/3408/3408545.svg",
-        "https://www.flaticon.com/svg/static/icons/svg/3408/3408551.svg",
-        "https://www.flaticon.com/svg/static/icons/svg/3408/3408556.svg",
-        "https://www.flaticon.com/svg/static/icons/svg/3408/3408564.svg",
-        "https://www.flaticon.com/svg/static/icons/svg/3408/3408571.svg",
-        "https://www.flaticon.com/svg/static/icons/svg/3408/3408578.svg",
-        "https://www.flaticon.com/svg/static/icons/svg/3408/3408720.svg",
-      ];
       const getRandomNum = (min, max) =>
         Math.floor(Math.random() * (max - min + 1)) + min;
-
-      return userPhotos[getRandomNum(0, userPhotos.length)];
+      return require("@/assets/images/chat/"+getRandomNum(1, 50)+".png");
     },
     getPersonName() {
       return "用戶" + Math.floor(Math.random() * 1000);
