@@ -9,31 +9,75 @@ export default {
     const router = useRouter();
     // 顯示訂閱
     const showNotification = ref(false);
+    const form = ref("");
     const chatForm = reactive({
-      newChatRoom: "",
-      allChatRooms: "",
+      chatRoom: "",
       myName: "",
       myPic: "",
-      desc: "",
+    });
+
+    const rules = reactive({
+      chatRoom: [
+        { required: true, message: "請輸入或選擇一個聊天室", trigger: "blur" },
+        {
+          min: 3,
+          max: 25,
+          message: "字數在 3 到 25 個字之間",
+          trigger: "blur",
+        },
+      ],
+      myName: [{ required: true, message: "請輸入暱稱", trigger: "blur" }],
+      myPic: [{ required: true, message: "請選擇頭像", trigger: "change" }],
     });
 
     const picArr = [];
     for (let i = 0; i < 50; i++) {
-      picArr[i] = require("../assets/images/chat/"+i+".png");
+      picArr[i] = require("../assets/images/chat/" + i + ".png");
     }
-    // picArr.splice(0,1);
-    console.log(picArr);
+    const roomsArr = [
+      {
+        value: "聊天室1",
+        label: "聊天室1",
+      },
+      {
+        value: "聊天室2",
+        label: "聊天室2",
+      },
+      {
+        value: "聊天室3",
+        label: "聊天室3",
+      },
+      {
+        value: "聊天室4",
+        label: "聊天室4",
+      },
+      {
+        value: "聊天室5",
+        label: "聊天室5",
+      },
+    ];
 
-    const onSubmit = () => {
-      console.log("送出");
+    const submitForm = (formName) => {
+      formName.validate((valid) => {
+        if (valid) {
+          alert("submit!");
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
     };
+
     return {
       router,
       showNotification,
       useNotifyMe,
       chatForm,
-      onSubmit,
+      submitForm,
       picArr,
+      roomsArr,
+      rules,
+      form,
     };
   },
 };
@@ -63,56 +107,85 @@ export default {
         <span><i class="fas fa-cog"></i></span>
       </div>
     </header>
-
-    <el-form
-      ref="form"
-      :model="chatForm"
-      label-width="130px"
-    >
-      <el-form-item label="建立新聊天室">
-        <el-input v-model="chatForm.newChatRoom"></el-input>
-      </el-form-item>
-
-      <el-form-item label="選擇現有聊天室">
-        <el-select
-          v-model="chatForm.allChatRooms"
-          placeholder="請選擇聊天室"
+    <el-row :gutter="20">
+      <el-col :span="24">
+        <el-form
+          ref="form"
+          :model="chatForm"
+          :rules="rules"
+          label-width="150px"
+          style="margin-top:20px;"
+          class="demo-ruleForm"
         >
-          <el-option
-            label="聊天室1"
-            value="chatRoom1"
-          ></el-option>
-          <el-option
-            label="聊天室2"
-            value="chatRoom2"
-          ></el-option>
-        </el-select>
-      </el-form-item>
-
-      <el-form-item label="顯示名稱">
-        <el-input v-model="chatForm.myName"></el-input>
-      </el-form-item>
-
-      <el-form-item label="選擇頭像">
-        <el-radio-group v-model="chatForm.myPic">
-          <el-radio
-            v-for="(img) in picArr"
-            :key="img"
-            :label="img"
+          <el-row
+            type="flex"
+            justify=""
           >
-            <img :src="img" >
-          </el-radio>
-        </el-radio-group>
-      </el-form-item>
+            <el-col :span="12">
+              <el-form-item
+                label="我的暱稱"
+                prop="myName"
+              >
+                <el-input v-model="chatForm.myName"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item
+                label="選擇或建立聊天室"
+                prop="chatRoom"
+              >
 
-      <el-form-item>
-        <el-button
-          type="primary"
-          @click="onSubmit"
-        >立即创建</el-button>
-        <el-button>取消</el-button>
-      </el-form-item>
-    </el-form>
+                <el-tooltip
+                  class="item"
+                  content="可以自行輸入以建立新聊天室"
+                  placement="top-start"
+                >
+                  <el-select
+                    v-model="chatForm.chatRoom"
+                    filterable
+                    allow-create
+                    default-first-option
+                    clearable
+                    placeholder="請選擇或建立聊天室"
+                  >
+                    <el-option
+                      v-for="item in roomsArr"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    >
+                    </el-option>
+                  </el-select>
+                </el-tooltip>
+              </el-form-item>
+            </el-col>
+          </el-row>
+
+          <el-form-item
+            label="我的頭像"
+            prop="myPic"
+          >
+            <el-radio-group v-model="chatForm.myPic">
+              <el-radio
+                v-for="(img) in picArr"
+                :key="img"
+                :label="img"
+              >
+                <img :src="img">
+              </el-radio>
+            </el-radio-group>
+          </el-form-item>
+
+          <el-form-item>
+            <el-button
+              type="primary"
+              @click="submitForm(form)"
+            >進入聊天室</el-button>
+            <el-button>取消</el-button>
+          </el-form-item>
+        </el-form>
+      </el-col>
+    </el-row>
   </section>
 
 </template>
